@@ -1,0 +1,10 @@
+case                       C(r)  brute   mass
+overlapping                1.00   1.00   1.60
+nested                     0.80   0.80   1.00
+disjoint                   0.50   0.50   0.50
+duplicate copies           0.40   0.40   0.80
+coincident points          0.10   0.10   0.20
+empty partners             0.00   0.00   0.00
+partner beyond anchor      0.30   0.30   0.30
+cross-group (group A anchor): 0.2  without group filter: 0.5
+randomized property checks passed: 20000

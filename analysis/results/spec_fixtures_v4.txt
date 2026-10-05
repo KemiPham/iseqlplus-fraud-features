@@ -1,0 +1,11 @@
+PASS P3: [1,2,20] qualifies, reversed does not, spread identical
+PASS P3: cross-group pair is not a span
+PASS P3: span [100,1000] with only 67% inside [400,3999] is excluded
+PASS P6: F@30,S@30,F@40,S@70 -> only F@40 (a success resets its whole timestamp batch)
+PASS P6: earlier failures reset; failure tied with the success excluded
+PASS P1: rank proportion m/n = 2/3 for two tied micro events + one large
+PASS P1: the same two micro events occupy one wall-clock chronon (measures differ)
+PASS P1: a duplicate copy of ID 11 is de-duplicated by ID before counting
+PASS Eq.3: empty partners -> no pair even when the scalar default (0) satisfies an upper bound; alert equivalence holds for positive lower-bound thresholds
+PASS Device pooling fitted on the whole log changes an earlier novelty flag when future rows are appended
+PASS A map frozen on the earlier (training) period leaves the earlier flag unchanged

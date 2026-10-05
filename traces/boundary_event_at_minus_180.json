@@ -1,0 +1,49 @@
+{
+ "trace": "boundary_event_at_minus_180",
+ "spec": {
+  "pattern": "P1 card testing (dominance)",
+  "specification": "w_180 ^{C(>=0.6)} RDJ sigma_{amt<10}(Tx), rank-proportion reading",
+  "version": "rev4",
+  "source": "PCI SSC & NCFTA, Bulletin: The threat of account testing to payment security, 21 Oct 2020, p. 2 (low-value carding), pp. 3-4 (detection red flags), p. 5 (acquirer velocity checks)",
+  "parameters": {
+   "amount_cutoff_usd": {
+    "value": 10,
+    "provenance": "E"
+   },
+   "window_s": {
+    "value": 180,
+    "provenance": "E"
+   },
+   "p": {
+    "value": 0.6,
+    "provenance": "E"
+   },
+   "group_key": {
+    "value": "card1",
+    "provenance": "E"
+   }
+  },
+  "conventions": "eligible iff same card1 and t-180 <= t_j < t; tied events excluded; later events unavailable; empty history -> 0; distinct TransactionIDs counted once"
+ },
+ "anchor": {
+  "TransactionID": 3537612,
+  "card1": 2616,
+  "t_rel_s": 0,
+  "amount": 77.0,
+  "split": "test"
+ },
+ "events": [
+  {
+   "TransactionID": 3537609,
+   "t_rel_s": -180,
+   "amount": 209.95,
+   "reason": "eligible"
+  }
+ ],
+ "stored_feature": 0.0,
+ "downstream_model_info": {
+  "label_isFraud": 0,
+  "model_D_score": 0.026,
+  "note": "model score is separate from the rule alert"
+ }
+}

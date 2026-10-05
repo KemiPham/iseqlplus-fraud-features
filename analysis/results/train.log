@@ -1,0 +1,27 @@
+/usr/local/lib/python3.13/dist-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+C 228 val 0.914511 0.5634 test 0.892082 0.5247 unused stats [] 39s
+/usr/local/lib/python3.13/dist-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+D 215 val 0.913315 0.5581 test 0.891552 0.5259 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 36s
+/usr/local/lib/python3.13/dist-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+Dbatch 264 val 0.914561 0.5672 test 0.890229 0.5209 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 42s
+/usr/local/lib/python3.13/dist-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+D_minus_P1 215 val 0.913315 0.5581 test 0.891552 0.5259 unused stats ['micro_fail_count_5min'] 36s
+/usr/local/lib/python3.13/dist-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+D_minus_P2 258 val 0.914157 0.5633 test 0.889651 0.5256 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 327s
+/usr/local/lib/python3.13/dist-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+D_minus_P3 215 val 0.91401 0.558 test 0.891458 0.5273 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 145s
+/usr/local/lib/python3.13/dist-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+D_minus_P4 294 val 0.913992 0.5671 test 0.889307 0.5267 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 47s
+/usr/local/lib/python3.13/dist-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+D_minus_P5 198 val 0.914118 0.5554 test 0.891487 0.5246 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 37s
+/usr/local/lib/python3.13/dist-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+D_minus_P6 215 val 0.913315 0.5581 test 0.891552 0.5259 unused stats ['micro_tx_ratio_3min'] 38s

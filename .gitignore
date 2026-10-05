@@ -1,0 +1,7 @@
+data/
+data4/
+out4/
+outputs/
+*.parquet
+*.pkl
+__pycache__/

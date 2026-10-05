@@ -1,0 +1,8 @@
+cut,mode,cut_TransactionDT,rows_kept,P1,P2,P3,P4,P5_1h,P5_6h,P5_24h,P6,P4_batch
+start of validation (day 120),t < cut,10454400,414542,0,0,0,0,0,0,0,0,0
+start of test (day 150),t < cut,13046400,498113,0,0,0,0,0,0,0,0,0
+"mid-day (day 160 + 12,345 s)",t < cut,13922745,529396,0,0,0,0,0,0,0,0,323
+first tied timestamp in test,t < cut,13207022,504327,0,0,0,0,0,0,0,0,1813
+"tied timestamp #1 in test, batch included",t <= cut,13207022,504329,0,0,0,0,0,0,0,0,1815
+"tied timestamp #2 in test, batch included",t <= cut,13711497,521729,0,0,0,0,0,0,0,0,1040
+"tied timestamp #3 in test, batch included",t <= cut,14061910,533654,0,0,0,0,0,0,0,0,1169

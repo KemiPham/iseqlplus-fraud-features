@@ -1,0 +1,24 @@
+/home/claude/work/prefix_v4.py:42: Pandas4Warning: The 'verify_integrity' keyword in DataFrame.set_index is deprecated and will be removed in a future version. Directly check the result.index.is_unique instead.
+  return o.set_index('TransactionID',verify_integrity=True)
+raw-input recomputation vs saved vectors (mismatches): [('P1', 0), ('P2', 0), ('P3', 0), ('P4', 0), ('P4_batch', 0), ('P5_1h', 0), ('P5_6h', 0), ('P5_24h', 0), ('P6', 0)]
+/home/claude/work/prefix_v4.py:42: Pandas4Warning: The 'verify_integrity' keyword in DataFrame.set_index is deprecated and will be removed in a future version. Directly check the result.index.is_unique instead.
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'start of validation (day 120)', 'mode': 't < cut', 'cut_TransactionDT': 10454400, 'rows_kept': 414542, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 0}
+/home/claude/work/prefix_v4.py:42: Pandas4Warning: The 'verify_integrity' keyword in DataFrame.set_index is deprecated and will be removed in a future version. Directly check the result.index.is_unique instead.
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'start of test (day 150)', 'mode': 't < cut', 'cut_TransactionDT': 13046400, 'rows_kept': 498113, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 0}
+/home/claude/work/prefix_v4.py:42: Pandas4Warning: The 'verify_integrity' keyword in DataFrame.set_index is deprecated and will be removed in a future version. Directly check the result.index.is_unique instead.
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'mid-day (day 160 + 12,345 s)', 'mode': 't < cut', 'cut_TransactionDT': 13922745, 'rows_kept': 529396, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 323}
+/home/claude/work/prefix_v4.py:42: Pandas4Warning: The 'verify_integrity' keyword in DataFrame.set_index is deprecated and will be removed in a future version. Directly check the result.index.is_unique instead.
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'first tied timestamp in test', 'mode': 't < cut', 'cut_TransactionDT': 13207022, 'rows_kept': 504327, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 1813}
+/home/claude/work/prefix_v4.py:42: Pandas4Warning: The 'verify_integrity' keyword in DataFrame.set_index is deprecated and will be removed in a future version. Directly check the result.index.is_unique instead.
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'tied timestamp #1 in test, batch included', 'mode': 't <= cut', 'cut_TransactionDT': 13207022, 'rows_kept': 504329, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 1815}
+/home/claude/work/prefix_v4.py:42: Pandas4Warning: The 'verify_integrity' keyword in DataFrame.set_index is deprecated and will be removed in a future version. Directly check the result.index.is_unique instead.
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'tied timestamp #2 in test, batch included', 'mode': 't <= cut', 'cut_TransactionDT': 13711497, 'rows_kept': 521729, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 1040}
+/home/claude/work/prefix_v4.py:42: Pandas4Warning: The 'verify_integrity' keyword in DataFrame.set_index is deprecated and will be removed in a future version. Directly check the result.index.is_unique instead.
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'tied timestamp #3 in test, batch included', 'mode': 't <= cut', 'cut_TransactionDT': 14061910, 'rows_kept': 533654, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 1169}

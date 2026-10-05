@@ -1,0 +1,10 @@
+statistic,tested,empty_or_default,matches,mismatches,mismatches_at_tied,excluded,comparison
+P1 micro_tx_ratio_3min,178237,150560,178237,0,0,0,abs tol 1e-9
+P2 device_novelty_flag,178237,,178237,0,0,0,exact
+P3 amount_spread_1h,178237,85116,178237,0,0,0,abs tol 1e-9
+P4 subthreshold_count_elapsed,178237,12926,178237,0,0,0,exact
+P4 batch (sensitivity),178237,,178237,0,0,0,exact
+P5 tx_count_1h,178237,,178237,0,0,0,exact
+P5 tx_count_6h,178237,,178237,0,0,0,exact
+P5 tx_count_24h,178237,,178237,0,0,0,exact
+P6 small_amount_count_5min,178237,,178237,0,0,0,exact
