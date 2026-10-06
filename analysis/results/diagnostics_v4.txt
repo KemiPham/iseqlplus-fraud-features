@@ -1,0 +1,24 @@
+D1 P1 test alerts 216 TP 22
+        alerts  tp
+n = 1      152  22
+n >= 2      64   0
+D2 class means (full log)
+                              legit    fraud  lower_for_fraud
+micro_tx_ratio_3min          0.0014   0.0052            False
+device_novelty_flag          0.0758   0.1115            False
+escalation_ratio_1h          0.2931   0.2690             True
+subthreshold_count_elapsed  10.1098   8.0554             True
+tx_count_1h                  1.4601   1.3175             True
+tx_count_6h                  6.4710   5.1781             True
+tx_count_24h                18.9312  15.2831             True
+micro_fail_count_5min        0.0004   0.0004            False
+lower for fraud: 5 of 8
+D3 card1 values 13553
+    legit  fraud    gs_range
+gs                          
+0    0.42   0.89        1-79
+1    1.67   2.20      79-476
+2   10.23   8.28    476-1538
+3   16.68  15.59   1538-3977
+4   65.80  46.89  3977-14932
+D4 P2 composition: actual TP 360, expected from stratum composition 381.8, ratio 0.943 [95% group CI 0.794, 1.132]

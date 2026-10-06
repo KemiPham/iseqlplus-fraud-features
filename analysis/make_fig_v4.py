@@ -31,7 +31,7 @@ sty(ax,'x')
 fig.tight_layout()
 fig.savefig(FIGDIR+'/figS1_ablation.pdf',bbox_inches='tight',pad_inches=0.02); fig.savefig(FIGDIR+'/figS1_ablation.png',dpi=300,bbox_inches='tight',pad_inches=0.02)
 fig,ax=plt.subplots(figsize=(3.45,1.9))
-o=pd.read_csv('out4/shap_strat_v4_test.csv'); f=o[o.y==1].copy()
+o=pd.read_csv('out4/shap_strat_v4_test.csv'); f=o[o.isFraud==1].copy()
 labs=['<.1','.1–.3','.3–.5','.5–.7','.7–.9','≥.9']
 f['bin']=pd.cut(f.p,[0,.1,.3,.5,.7,.9,1.0001],right=False,labels=labs)
 g=f.groupby('bin',observed=False).agg(n=('p','size'),share=('share','mean'),se=('share','sem'))

@@ -3,6 +3,7 @@ sys.path.insert(0,'src'); import common as C
 cols=json.load(open('models/cols_v4_D.json')); K=json.load(open('models/column_meta.json'))['CAT_COLS']
 ISE=['micro_tx_ratio_3min','device_novelty_flag','escalation_ratio_1h','subthreshold_count_elapsed','tx_count_1h','tx_count_6h','tx_count_24h','micro_fail_count_5min']
 md=C.load_artifact('v4_D'); ex=shap.TreeExplainer(md)
+assert list(md.booster_.feature_name())==cols, 'feature list does not match the stored model D (names/order)'
 def lean(split):
     X=pq.read_table(f'data4/{split}.parquet',columns=cols+['isFraud','TransactionID']).to_pandas()
     cat=[c for c in K if c in cols]
@@ -26,15 +27,15 @@ print('val-sample frauds',len(fr),'with ISEQL in top5',has[fr].sum(), smp.Transa
 te=lean('test'); fr=te[te.isFraud==1]; lg=te[te.isFraud==0].sample(6000,random_state=42); z=pd.concat([fr,lg]).reset_index(drop=True)
 s=sv_of(z); p=md.predict_proba(z[cols])[:,1]; a=np.abs(s)
 top5=np.argsort(-a,1)[:,:5]
-out=pd.DataFrame(dict(tid=z.TransactionID,y=z.isFraud,p=p,hasI_top5=isI[top5].any(1),share=a[:,isI].sum(1)/a.sum(1),signed=s[:,isI].sum(1),
+out=pd.DataFrame(dict(TransactionID=z.TransactionID,isFraud=z.isFraud,p=p,hasI_top5=isI[top5].any(1),share=a[:,isI].sum(1)/a.sum(1),signed=s[:,isI].sum(1),
    top_iseql=np.array(cols)[np.where(isI)[0][np.argmax(a[:,isI],1)]]))
-out.to_csv('out4/shap_strat_v4_test.csv',index=False)
-f=out[out.y==1]; f['bin']=pd.cut(f.p,[0,.1,.3,.5,.7,.9,1.0001],right=False)
+out.to_csv('out4/shap_strat_v4_test.csv',index=False)   # labels joined by TransactionID from data4/test.parquet, not by row position
+f=out[out.isFraud==1]; f['bin']=pd.cut(f.p,[0,.1,.3,.5,.7,.9,1.0001],right=False)
 print(f.groupby('bin',observed=False).agg(n=('p','size'),share=('share','mean'),signed=('signed','mean'),hasI=('hasI_top5','mean')))
 print('fraud top5',f.hasI_top5.sum(),len(f),f[f.hasI_top5].top_iseql.value_counts().to_dict())
 print('low<0.3 share',f[f.p<.3].share.mean(),'>=0.9',f[f.p>=.9].share.mean())
 from scipy.stats import spearmanr; print(spearmanr(f.p,f.share))
-l=out[out.y==0]; print('legit share',l.share.mean(),'legit signed',l.signed.mean(),'fraud signed',f.signed.mean())
+l=out[out.isFraud==0]; print('legit share',l.share.mean(),'legit signed',l.signed.mean(),'fraud signed',f.signed.mean())
 # additivity check: expected_value + sum(SHAP) equals the raw log-odds margin
 Xc=z[cols].iloc[:500]; sv=sv_of(Xc); ev=np.asarray(ex.expected_value).ravel()[-1]
 raw=md.predict(Xc,raw_score=True) if hasattr(md,'predict') else None

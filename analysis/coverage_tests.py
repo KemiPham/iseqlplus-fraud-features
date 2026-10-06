@@ -36,6 +36,6 @@ for _ in range(20000):
     if P: assert coverage(r,P[:-1])<=c+1e-12                                # monotone in partners
     cl=[clip(r,s) for s in P if clip(r,s)]
     disjoint=all(x[1]<y[0] or y[1]<x[0] for x,y in itertools.combinations(cl,2))
-    if disjoint: assert abs(mass(r,P)-c)<1e-12                              # = normalised sum iff clipped partners disjoint
+    assert (abs(mass(r,P)-c)<1e-12)==disjoint                               # = normalised sum iff clipped partners pairwise disjoint (both directions)
     n+=1
 print('randomized property checks passed:',n)

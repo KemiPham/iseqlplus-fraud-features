@@ -1,5 +1,7 @@
 """Writes self-contained trace fixtures (JSON) for P1 from the stored data; replay with replay_trace.py (no data needed)."""
 import json, numpy as np, pandas as pd, hashlib
+from pathlib import Path
+Path('out4/traces').mkdir(parents=True, exist_ok=True)
 d=pd.read_parquet('data/train_enriched.parquet',columns=['TransactionID','TransactionDT','card1','TransactionAmt','isFraud','split','micro_tx_ratio_3min'])
 z=np.load('out4/pred_D.npz'); score=dict(zip(np.r_[z['tidv'],z['tidt']].tolist(),np.r_[z['pv'],z['pt']].tolist()))
 spec={'pattern':'P1 card testing (dominance)','specification':'w_180 ^{C(>=0.6)} RDJ sigma_{amt<10}(Tx), rank-proportion reading','version':'rev4',

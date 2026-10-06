@@ -1,0 +1,9 @@
+statistic,tested,mismatches
+micro_tx_ratio_3min,1783,0
+device_novelty_flag,1783,0
+escalation_ratio_1h,1783,0
+subthreshold_count_elapsed,1783,0
+tx_count_1h,1783,0
+tx_count_6h,1783,0
+tx_count_24h,1783,0
+micro_fail_count_5min,1783,0

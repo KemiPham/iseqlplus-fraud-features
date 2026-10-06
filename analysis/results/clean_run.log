@@ -1,0 +1,285 @@
+== step 2 Tue Oct  6 08:20:06 UTC 2026
+device map hash 59c29df4cddd levels kept 234
+device values changed by split {'test': 497, 'train': 934, 'val': 256}
+P2 flags changed (vs tie-corrected rev3) by split {'test': 173, 'train': 499, 'val': 126}
+train 414542
+val 83571
+test 92427
+== step 3 Tue Oct  6 08:20:22 UTC 2026
+                    statistic  tested empty_or_default  matches  mismatches  mismatches_at_tied  excluded   comparison
+       P1 micro_tx_ratio_3min  178237           150560   178237           0                   0         0 abs tol 1e-9
+       P2 device_novelty_flag  178237                    178237           0                   0         0        exact
+          P3 amount_spread_1h  178237            85116   178237           0                   0         0 abs tol 1e-9
+P4 subthreshold_count_elapsed  178237            12926   178237           0                   0         0        exact
+       P4 batch (sensitivity)  178237                    178237           0                   0         0        exact
+               P5 tx_count_1h  178237                    178237           0                   0         0        exact
+               P5 tx_count_6h  178237                    178237           0                   0         0        exact
+              P5 tx_count_24h  178237                    178237           0                   0         0        exact
+   P6 small_amount_count_5min  178237                    178237           0                   0         0        exact
+groups 362 rows 178237 tied rows 312
+ENFORCED: 0 mismatches and 0 exclusions for all primary statistics
+  return o.set_index('TransactionID',verify_integrity=True)
+raw-input recomputation vs saved vectors (mismatches): [('P1', 0), ('P2', 0), ('P3', 0), ('P4', 0), ('P4_batch', 0), ('P5_1h', 0), ('P5_6h', 0), ('P5_24h', 0), ('P6', 0)]
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'start of validation (day 120)', 'mode': 't < cut', 'cut_TransactionDT': 10454400, 'rows_kept': 414542, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 0}
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'start of test (day 150)', 'mode': 't < cut', 'cut_TransactionDT': 13046400, 'rows_kept': 498113, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 0}
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'mid-day (day 160 + 12,345 s)', 'mode': 't < cut', 'cut_TransactionDT': 13922745, 'rows_kept': 529396, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 323}
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'first tied timestamp in test', 'mode': 't < cut', 'cut_TransactionDT': 13207022, 'rows_kept': 504327, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 1813}
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'tied timestamp #1 in test, batch included', 'mode': 't <= cut', 'cut_TransactionDT': 13207022, 'rows_kept': 504329, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 1815}
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'tied timestamp #2 in test, batch included', 'mode': 't <= cut', 'cut_TransactionDT': 13711497, 'rows_kept': 521729, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 1040}
+  return o.set_index('TransactionID',verify_integrity=True)
+{'cut': 'tied timestamp #3 in test, batch included', 'mode': 't <= cut', 'cut_TransactionDT': 14061910, 'rows_kept': 533654, 'P1': 0, 'P2': 0, 'P3': 0, 'P4': 0, 'P5_1h': 0, 'P5_6h': 0, 'P5_24h': 0, 'P6': 0, 'P4_batch': 1169}
+ENFORCED: primary statistics unchanged at all cuts; batch P4 differences are expected diagnostics
+case                       C(r)  brute   mass
+overlapping                1.00   1.00   1.60
+nested                     0.80   0.80   1.00
+disjoint                   0.50   0.50   0.50
+duplicate copies           0.40   0.40   0.80
+coincident points          0.10   0.10   0.20
+empty partners             0.00   0.00   0.00
+partner beyond anchor      0.30   0.30   0.30
+cross-group (group A anchor): 0.2  without group filter: 0.5
+randomized property checks passed: 20000
+PASS P3: [1,2,20] qualifies, reversed does not, spread identical
+PASS P3: cross-group pair is not a span
+PASS P3: span [100,1000] with about 67% of its own chronons inside w=[400,3999] is excluded by the 80% left-overlap constraint
+PASS P6: F@30,S@30,F@40,S@70 -> only F@40 (a success resets its whole timestamp batch)
+PASS P6: earlier failures reset; failure tied with the success excluded
+PASS P1: rank proportion m/n = 2/3 for two tied micro events + one large
+PASS P1: the same two micro events occupy one wall-clock chronon (measures differ)
+PASS P1: input contract: unique IDs; a duplicated ID is rejected, not silently counted
+PASS Eq.3: empty partners -> no pair even when the scalar default (0) satisfies an upper bound; alert equivalence holds for positive lower-bound thresholds
+PASS Device pooling fitted on the whole log changes an earlier novelty flag when future rows are appended
+PASS A map frozen on the earlier (training) period leaves the earlier flag unchanged
+== step 4 Tue Oct  6 08:27:53 UTC 2026
+C 228 val 0.914511 0.5634 test 0.892082 0.5247 unused stats [] 44s
+D 215 val 0.913315 0.5581 test 0.891552 0.5259 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 41s
+Dbatch 264 val 0.914561 0.5672 test 0.890229 0.5209 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 46s
+D_minus_P1 215 val 0.913315 0.5581 test 0.891552 0.5259 unused stats ['micro_fail_count_5min'] 42s
+D_minus_P2 258 val 0.914157 0.5633 test 0.889651 0.5256 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 47s
+D_minus_P3 215 val 0.91401 0.558 test 0.891458 0.5273 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 43s
+D_minus_P4 294 val 0.913992 0.5671 test 0.889307 0.5267 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 49s
+D_minus_P5 198 val 0.914118 0.5554 test 0.891487 0.5246 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 38s
+D_minus_P6 215 val 0.913315 0.5581 test 0.891552 0.5259 unused stats ['micro_tx_ratio_3min'] 40s
+1 [3182001] 414541
+2 [3333738] 414541
+3 [3322921] 414541
+4 [3287655] 414541
+C@drop1 214 val 0.915236 0.5583 test 0.891712 0.5248 unused stats [] 42s
+D@drop1 305 val 0.914917 0.5682 test 0.890172 0.5276 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 51s
+C@drop2 254 val 0.915703 0.5709 test 0.89204 0.5238 unused stats [] 41s
+D@drop2 285 val 0.914079 0.5657 test 0.887988 0.5219 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 45s
+C@drop3 214 val 0.915418 0.5615 test 0.893746 0.5263 unused stats [] 41s
+D@drop3 230 val 0.915002 0.5638 test 0.891202 0.5233 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 44s
+C@drop4 274 val 0.915619 0.568 test 0.892739 0.5267 unused stats [] 44s
+D@drop4 207 val 0.914235 0.5515 test 0.892622 0.5218 unused stats ['micro_tx_ratio_3min', 'micro_fail_count_5min'] 41s
+== step 5 Tue Oct  6 08:40:43 UTC 2026
+ id                                rule  alerts   tp  precision  lift    lo    hi  recall  rows  base
+ P1           micro share >= 0.6, 180 s     216   22     10.185 2.930 0.917 7.263   0.685 92427 0.035
+P2*         device level unseen in 30 d    5675  360      6.344 1.825 1.583 2.100  11.204 92427 0.035
+ P4  >= 3 earlier sub-9500, same bucket   41590 1501      3.609 1.038 0.925 1.153  46.716 92427 0.035
+P4b >= 3 sub-9500, whole bucket (batch)   63992 2465      3.852 1.108 1.051 1.163  76.720 92427 0.035
+ P5                         >= 5 in 1 h    6275  152      2.422 0.697 0.393 1.273   4.731 92427 0.035
+ P5                         >= 5 in 6 h   26064  907      3.480 1.001 0.809 1.220  28.229 92427 0.035
+ P5                        >= 5 in 24 h   47506 1707      3.593 1.034 0.917 1.152  53.128 92427 0.035
+P6*                >= 10 sub-1 in 300 s       0    0        NaN   NaN   NaN   NaN   0.000 92427 0.035
+                                 stratum  alerts  tp  precision  lift    lo    hi  recall  rows  base
+      observed device, established group    3376 298      8.827 0.956 0.777 1.186  20.912 15428 0.092
+observed device, first group observation     235  24     10.213 1.000 1.000 1.000 100.000   235 0.102
+       missing device, established group    1650  30      1.818 0.791 0.529 1.101   1.708 76350 0.023
+ missing device, first group observation     414   8      1.932 1.000 1.000 1.000 100.000   414 0.019
+D1 P1 test alerts 216 TP 22
+        alerts  tp
+n = 1      152  22
+n >= 2      64   0
+D2 class means (full log)
+                              legit    fraud  lower_for_fraud
+micro_tx_ratio_3min          0.0014   0.0052            False
+device_novelty_flag          0.0758   0.1115            False
+escalation_ratio_1h          0.2931   0.2690             True
+subthreshold_count_elapsed  10.1098   8.0554             True
+tx_count_1h                  1.4601   1.3175             True
+tx_count_6h                  6.4710   5.1781             True
+tx_count_24h                18.9312  15.2831             True
+micro_fail_count_5min        0.0004   0.0004            False
+lower for fraud: 5 of 8
+D3 card1 values 13553
+    legit  fraud    gs_range
+gs                          
+0    0.42   0.89        1-79
+1    1.67   2.20      79-476
+2   10.23   8.28    476-1538
+3   16.68  15.59   1538-3977
+4   65.80  46.89  3977-14932
+D4 P2 composition: actual TP 360, expected from stratum composition 381.8, ratio 0.943 [95% group CI 0.794, 1.132]
+                   feature     mabs  rank
+              tx_count_24h 0.034578    32
+               tx_count_1h 0.008784    67
+       device_novelty_flag 0.007057    74
+               tx_count_6h 0.001376   121
+       escalation_ratio_1h 0.000845   131
+subthreshold_count_elapsed 0.000051   180
+       micro_tx_ratio_3min 0.000000   345
+     micro_fail_count_5min 0.000000   348
+val-sample frauds 43 with ISEQL in top5 1 [3462910]
+               n     share    signed      hasI
+bin                                           
+[0.0, 0.1)   363  0.010394  0.005760  0.000000
+[0.1, 0.3)   419  0.010976  0.019416  0.000000
+[0.3, 0.5)   381  0.009247  0.016071  0.000000
+[0.5, 0.7)   370  0.008850  0.021144  0.005405
+[0.7, 0.9)   571  0.007100  0.022721  0.005254
+[0.9, 1.0)  1109  0.004813  0.020291  0.004509
+fraud top5 10 3213 {'tx_count_24h': 10}
+low<0.3 share 0.010706002639789661 >=0.9 0.004812825395763308
+SignificanceResult(statistic=np.float64(-0.5209731843241545), pvalue=np.float64(4.41843954801783e-223))
+legit share 0.012058329836765575 legit signed 0.010063263055472664 fraud signed 0.01856488286731326
+additivity max abs error 4.440892098500626e-14 shap 0.52.0
+== step 6 Tue Oct  6 08:41:14 UTC 2026
+Traceback (most recent call last):
+  File "/home/claude/clean6/analysis/make_fig_v4.py", line 12, in <module>
+    r=pd.read_csv('out4/significance_v4.csv'); r=r[r.base=='D']
+  File "/usr/local/lib/python3.13/dist-packages/pandas/io/parsers/readers.py", line 873, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/usr/local/lib/python3.13/dist-packages/pandas/io/parsers/readers.py", line 300, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/usr/local/lib/python3.13/dist-packages/pandas/io/parsers/readers.py", line 1645, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/pandas/io/parsers/readers.py", line 1904, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/usr/local/lib/python3.13/dist-packages/pandas/io/common.py", line 930, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: 'out4/significance_v4.csv'
+== step 5 (resume) stats_v4 Tue Oct  6 08:41:59 UTC 2026
+{'base': 'C', 'model': 'D', 'split': 'val', 'auc_base': 0.9145106395279212, 'auc_model': 0.9133151398459977, 'd_auc': np.float64(-0.001195499681923673), 'delong_p': np.float64(0.016311787414622563), 'ci_lo': np.float64(-0.00302208581882604), 'ci_hi': np.float64(0.00045110988391065224), 'ap_base': 0.5634432578757903, 'ap_model': 0.5581363748155103, 'ci_ap_lo': np.float64(-0.01038099918767132), 'ci_ap_hi': np.float64(-0.00024165387362837026), 'p5_base': 0.3199262611027317, 'p5_model': 0.3196085048936888}
+{'base': 'C', 'model': 'D', 'split': 'test', 'auc_base': 0.8920818273132405, 'auc_model': 0.8915517108919225, 'd_auc': np.float64(-0.0005301164213179499), 'delong_p': np.float64(0.3448678566204333), 'ci_lo': np.float64(-0.0027375667412466525), 'ci_hi': np.float64(0.001547969368571637), 'ap_base': 0.5246781607401081, 'ap_model': 0.5258918732161855, 'ci_ap_lo': np.float64(-0.0035850631637707573), 'ci_ap_hi': np.float64(0.006142806116457088), 'p5_base': 0.309240055718929, 'p5_model': 0.3099984546437954}
+{'base': 'C', 'model': 'Dbatch', 'split': 'val', 'auc_base': 0.9145106395279212, 'auc_model': 0.9145610275114826, 'd_auc': np.float64(5.0387983561384075e-05), 'delong_p': np.float64(0.9268600715344034), 'ci_lo': np.float64(-0.001989311400082411), 'ci_hi': np.float64(0.002259686881691159), 'ap_base': 0.5634432578757903, 'ap_model': 0.5672111093479856, 'ci_ap_lo': np.float64(-0.0016198179247787908), 'ci_ap_hi': np.float64(0.009576439549851398), 'p5_base': 0.3199262611027317, 'p5_model': 0.3202559353426503}
+{'base': 'C', 'model': 'Dbatch', 'split': 'test', 'auc_base': 0.8920818273132405, 'auc_model': 0.8902292421490807, 'd_auc': np.float64(-0.001852585164159759), 'delong_p': np.float64(0.0009703881066775135), 'ci_lo': np.float64(-0.004656254334451907), 'ci_hi': np.float64(0.0008408663690257831), 'ap_base': 0.5246781607401081, 'ap_model': 0.5208958653049578, 'ci_ap_lo': np.float64(-0.010108300469741838), 'ci_ap_hi': np.float64(0.0023314448685125755), 'p5_base': 0.309240055718929, 'p5_model': 0.30808629520409747}
+{'base': 'D', 'model': 'Dbatch', 'split': 'val', 'auc_base': 0.9133151398459977, 'auc_model': 0.9145610275114826, 'd_auc': np.float64(0.001245887665485057), 'delong_p': np.float64(0.02086053664536551), 'ci_lo': np.float64(-0.0005328856340637177), 'ci_hi': np.float64(0.0032141431553317696), 'ap_base': 0.5581363748155103, 'ap_model': 0.5672111093479856, 'ci_ap_lo': np.float64(0.003455821072140236), 'ci_ap_hi': np.float64(0.015015197786390176), 'p5_base': 0.3196085048936888, 'p5_model': 0.3202559353426503}
+{'base': 'D', 'model': 'Dbatch', 'split': 'test', 'auc_base': 0.8915517108919225, 'auc_model': 0.8902292421490807, 'd_auc': np.float64(-0.0013224687428418092), 'delong_p': np.float64(0.020259361789768147), 'ci_lo': np.float64(-0.004233313466880065), 'ci_hi': np.float64(0.001564313382311591), 'ap_base': 0.5258918732161855, 'ap_model': 0.5208958653049578, 'ci_ap_lo': np.float64(-0.011426005027638509), 'ci_ap_hi': np.float64(0.0008026693621093528), 'p5_base': 0.3099984546437954, 'p5_model': 0.30808629520409747}
+{'base': 'D', 'model': 'D_minus_P2', 'split': 'val', 'auc_base': 0.9133151398459977, 'auc_model': 0.9141568108648873, 'd_auc': np.float64(0.0008416710188896559), 'delong_p': np.float64(0.018342831562375313), 'ci_lo': np.float64(-0.0002877142248869785), 'ci_hi': np.float64(0.0020485474045577766), 'ap_base': 0.5581363748155103, 'ap_model': 0.563340851330614, 'ci_ap_lo': np.float64(0.0014830622212127053), 'ci_ap_hi': np.float64(0.009134094092020003), 'p5_base': 0.3196085048936888, 'p5_model': 0.3192099932478055}
+{'base': 'D', 'model': 'D_minus_P2', 'split': 'test', 'auc_base': 0.8915517108919225, 'auc_model': 0.889650897012245, 'd_auc': np.float64(-0.0019008138796776652), 'delong_p': np.float64(2.605688303345993e-07), 'ci_lo': np.float64(-0.00338374973112619), 'ci_hi': np.float64(-0.0004875242507815875), 'ap_base': 0.5258918732161855, 'ap_model': 0.5255663799750291, 'ci_ap_lo': np.float64(-0.004698572657847541), 'ci_ap_hi': np.float64(0.0037859374201559192), 'p5_base': 0.3099984546437954, 'p5_model': 0.30863432026042475}
+{'base': 'D', 'model': 'D_minus_P3', 'split': 'val', 'auc_base': 0.9133151398459977, 'auc_model': 0.9140095264238073, 'd_auc': np.float64(0.0006943865778097358), 'delong_p': np.float64(0.0019004555845490096), 'ci_lo': np.float64(-0.0002054121656374308), 'ci_hi': np.float64(0.0016605445768277352), 'ap_base': 0.5581363748155103, 'ap_model': 0.5580182005631563, 'ci_ap_lo': np.float64(-0.0034906730372332275), 'ci_ap_hi': np.float64(0.0031073211018335153), 'p5_base': 0.3196085048936888, 'p5_model': 0.3212243525058863}
+{'base': 'D', 'model': 'D_minus_P3', 'split': 'test', 'auc_base': 0.8915517108919225, 'auc_model': 0.891458166476002, 'd_auc': np.float64(-9.354441592057672e-05), 'delong_p': np.float64(0.6808667881413635), 'ci_lo': np.float64(-0.0010119506120945976), 'ci_hi': np.float64(0.0008110829903561405), 'ap_base': 0.5258918732161855, 'ap_model': 0.5273466727971405, 'ci_ap_lo': np.float64(-0.002530906460064192), 'ci_ap_hi': np.float64(0.005988280153939777), 'p5_base': 0.3099984546437954, 'p5_model': 0.31010506798516685}
+{'base': 'D', 'model': 'D_minus_P4', 'split': 'val', 'auc_base': 0.9133151398459977, 'auc_model': 0.9139924348476027, 'd_auc': np.float64(0.0006772950016050716), 'delong_p': np.float64(0.07719308154714125), 'ci_lo': np.float64(-0.0008822455025910585), 'ci_hi': np.float64(0.0022015996665242037), 'ap_base': 0.5581363748155103, 'ap_model': 0.5671099408332481, 'ci_ap_lo': np.float64(0.003745515930397642), 'ci_ap_hi': np.float64(0.014129847376682896), 'p5_base': 0.3196085048936888, 'p5_model': 0.3210021859761224}
+{'base': 'D', 'model': 'D_minus_P4', 'split': 'test', 'auc_base': 0.8915517108919225, 'auc_model': 0.8893070530808079, 'd_auc': np.float64(-0.002244657811114603), 'delong_p': np.float64(6.120360284635291e-08), 'ci_lo': np.float64(-0.003906396941658211), 'ci_hi': np.float64(-0.0006747733797140536), 'ap_base': 0.5258918732161855, 'ap_model': 0.5266540757395467, 'ci_ap_lo': np.float64(-0.007640431586941573), 'ci_ap_hi': np.float64(0.009104895813654474), 'p5_base': 0.3099984546437954, 'p5_model': 0.30948316001862486}
+{'base': 'D', 'model': 'D_minus_P5', 'split': 'val', 'auc_base': 0.9133151398459977, 'auc_model': 0.9141181353055587, 'd_auc': np.float64(0.0008029954595609734), 'delong_p': np.float64(0.09922059006794091), 'ci_lo': np.float64(-0.0007163993720032402), 'ci_hi': np.float64(0.002637998093563289), 'ap_base': 0.5581363748155103, 'ap_model': 0.5554009776455527, 'ci_ap_lo': np.float64(-0.009055163480798004), 'ci_ap_hi': np.float64(0.0037497720082538036), 'p5_base': 0.3196085048936888, 'p5_model': 0.32023608768971334}
+{'base': 'D', 'model': 'D_minus_P5', 'split': 'test', 'auc_base': 0.8915517108919225, 'auc_model': 0.8914868954334535, 'd_auc': np.float64(-6.481545846892534e-05), 'delong_p': np.float64(0.9063870299260125), 'ci_lo': np.float64(-0.002459735283651332), 'ci_hi': np.float64(0.0022742756857333313), 'ap_base': 0.5258918732161855, 'ap_model': 0.5245762393991265, 'ci_ap_lo': np.float64(-0.007250317876656584), 'ci_ap_hi': np.float64(0.007131252719126103), 'p5_base': 0.3099984546437954, 'p5_model': 0.30927039950640134}
+== step 6 Tue Oct  6 09:07:10 UTC 2026
+          n     share        se
+bin                            
+<.1     363  0.010394  0.000318
+.1–.3   419  0.010976  0.000298
+.3–.5   381  0.009247  0.000284
+.5–.7   370  0.008850  0.000331
+.7–.9   571  0.007100  0.000223
+≥.9    1109  0.004813  0.000125
+alert_single_prior_event: n=1 m=1 phi1=1.000 stored=1.000 MATCH alert=True | label=1 D score=0.901
+boundary_event_at_minus_180: n=1 m=0 phi1=0.000 stored=0.000 MATCH alert=False | label=0 D score=0.026
+non_alert_phi_0.5: n=2 m=1 phi1=0.500 stored=0.500 MATCH alert=False | label=0 D score=0.271
+== step 7 Tue Oct  6 09:07:13 UTC 2026
+card1 groups 13553 rows 590540 median group size 4 max group size 14932
+uid groups 217850 rows 590540 median group size 1 max group size 1414
+                 statistic  tested  mismatches
+       micro_tx_ratio_3min    1783           0
+       device_novelty_flag    1783           0
+       escalation_ratio_1h    1783           0
+subthreshold_count_elapsed    1783           0
+               tx_count_1h    1783           0
+               tx_count_6h    1783           0
+              tx_count_24h    1783           0
+     micro_fail_count_5min    1783           0
+groups 351 tie groups 51 rows 1783 tied rows 132
+uid stat gain ranks {'micro_tx_ratio_3min': 237, 'device_novelty_flag': 322, 'escalation_ratio_1h': 146, 'tx_count_1h': 93, 'subthreshold_count_elapsed': 86, 'tx_count_6h': 104, 'tx_count_24h': 174, 'micro_fail_count_5min': 416}
+Duid 269 val 0.913947 47s
+Duid@drop1 260 val 0.915462 48s
+Duid@drop2 266 val 0.91557 49s
+Duid@drop3 285 val 0.915601 47s
+Duid@drop4 220 val 0.914878 41s
+{'base': 'C', 'model': 'Duid', 'split': 'val', 'auc_base': 0.9145106395279212, 'auc_model': 0.9139467435700659, 'd_auc': np.float64(-0.0005638959578552205), 'delong_p': np.float64(0.10438406907317851), 'ci_lo': np.float64(-0.0019871787471039013), 'ci_hi': np.float64(0.0008542753855899801), 'ap_base': 0.5634432578757903, 'ap_model': 0.5682996554048442, 'd_ap': 0.004856397529053869, 'ci_ap_lo': np.float64(0.0013908453269135146), 'ci_ap_hi': np.float64(0.00857007327808867)}
+{'base': 'C', 'model': 'Duid', 'split': 'test', 'auc_base': 0.8920818273132405, 'auc_model': 0.8909236962308954, 'd_auc': np.float64(-0.0011581310823450819), 'delong_p': np.float64(0.0008289070734708779), 'ci_lo': np.float64(-0.0026836719403332183), 'ci_hi': np.float64(0.00029769059246123847), 'ap_base': 0.5246781607401081, 'ap_model': 0.5259080683628885, 'd_ap': 0.0012299076227804129, 'ci_ap_lo': np.float64(-0.002534512785955145), 'ci_ap_hi': np.float64(0.005697580380931924)}
+{'base': 'D', 'model': 'Duid', 'split': 'val', 'auc_base': 0.9133151398459977, 'auc_model': 0.9139467435700659, 'd_auc': np.float64(0.0006316037240684524), 'delong_p': np.float64(0.24384865660665966), 'ci_lo': np.float64(-0.001162801001451147), 'ci_hi': np.float64(0.0023390007934614896), 'ap_base': 0.5581363748155103, 'ap_model': 0.5682996554048442, 'd_ap': 0.010163280589333912, 'ci_ap_lo': np.float64(0.004144192624445394), 'ci_ap_hi': np.float64(0.016505344198449387)}
+{'base': 'D', 'model': 'Duid', 'split': 'test', 'auc_base': 0.8915517108919225, 'auc_model': 0.8909236962308954, 'd_auc': np.float64(-0.000628014661027132), 'delong_p': np.float64(0.31127669423331406), 'ci_lo': np.float64(-0.003107601730790757), 'ci_hi': np.float64(0.0019808619951005467), 'ap_base': 0.5258918732161855, 'ap_model': 0.5259080683628885, 'd_ap': 1.6195146703035235e-05, 'ci_ap_lo': np.float64(-0.0050076313782980286), 'ci_ap_hi': np.float64(0.005774169932871332)}
+     fit     d_val    d_test
+original -0.000564 -0.001158
+  @drop1  0.000226 -0.002000
+  @drop2 -0.000133 -0.002772
+  @drop3  0.000183 -0.003292
+  @drop4 -0.000740  0.000518
+== card1: groups 13553, group size median 919 (per group: 4), max 14932; rows with no earlier same-group event in 24 h: 0.216
+class means (full log); lower for fraud: 5 of 8
+                              legit    fraud
+micro_tx_ratio_3min          0.0014   0.0052
+device_novelty_flag          0.0758   0.1115
+escalation_ratio_1h          0.2931   0.2690
+subthreshold_count_elapsed  10.1098   8.0554
+tx_count_1h                  1.4601   1.3175
+tx_count_6h                  6.4710   5.1781
+tx_count_24h                18.9312  15.2831
+micro_fail_count_5min        0.0004   0.0004
+test-month rules
+  rule  alerts   tp   prec  lift    lo    hi
+    P1     216   22 10.185 2.930 0.917 7.263
+   P2*    5675  360  6.344 1.825 1.583 2.100
+    P4   41590 1501  3.609 1.038 0.925 1.153
+ P5 1h    6275  152  2.422 0.697 0.393 1.273
+ P5 6h   26064  907  3.480 1.001 0.809 1.220
+P5 24h   47506 1707  3.593 1.034 0.917 1.152
+   P6*       0    0    NaN   NaN   NaN   NaN
+P2 strata
+                                 stratum  alerts  tp   prec  lift    lo    hi
+      observed device, established group    3376 298  8.827 0.956 0.777 1.186
+observed device, first group observation     235  24 10.213 1.000 1.000 1.000
+       missing device, established group    1650  30  1.818 0.791 0.529 1.101
+ missing device, first group observation     414   8  1.932 1.000 1.000 1.000
+== uid: groups 217850, group size median 5 (per group: 1), max 1414; rows with no earlier same-group event in 24 h: 0.710
+class means (full log); lower for fraud: 1 of 8
+                             legit   fraud
+micro_tx_ratio_3min         0.0011  0.0036
+device_novelty_flag         0.4789  0.4081
+escalation_ratio_1h         0.0270  0.0534
+subthreshold_count_elapsed  1.5587  2.0429
+tx_count_1h                 0.4402  0.5834
+tx_count_6h                 1.0258  1.2962
+tx_count_24h                1.9561  2.3361
+micro_fail_count_5min       0.0003  0.0003
+test-month rules
+  rule  alerts   tp  prec  lift    lo    hi
+    P1     185   16 8.649 2.488 0.634 6.727
+   P2*   39842 1326 3.328 0.957 0.880 1.032
+    P4    8092  512 6.327 1.820 1.293 2.531
+ P5 1h    1698   20 1.178 0.339 0.061 2.564
+ P5 6h    3191  166 5.202 1.496 0.623 3.609
+P5 24h    5209  346 6.642 1.911 1.128 3.269
+   P6*       0    0   NaN   NaN   NaN   NaN
+P2 strata
+                                 stratum  alerts  tp  prec  lift   lo    hi
+      observed device, established group    3161 308 9.744 0.960 0.73 1.345
+observed device, first group observation    6227 491 7.885 1.000 1.00 1.000
+       missing device, established group    9331 122 1.307 0.535 0.41 0.673
+ missing device, first group observation   21123 405 1.917 1.000 1.00 1.000
+model (pre-registered): D_uid vs C
+base model split   d_auc  delong_p   ci_lo  ci_hi   d_ap  ci_ap_lo  ci_ap_hi
+   C  Duid   val -0.0006    0.1044 -0.0020 0.0009 0.0049    0.0014    0.0086
+   C  Duid  test -0.0012    0.0008 -0.0027 0.0003 0.0012   -0.0025    0.0057
+   D  Duid   val  0.0006    0.2438 -0.0012 0.0023 0.0102    0.0041    0.0165
+   D  Duid  test -0.0006    0.3113 -0.0031 0.0020 0.0000   -0.0050    0.0058
+== DONE Tue Oct  6 09:19:11 UTC 2026

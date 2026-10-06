@@ -37,7 +37,9 @@ for name in sys.argv[1:]:
     del Xtr; gc.collect(); Xte,_,_=lean('test',cols)
     pv=mdl.predict_proba(Xva)[:,1]; pt=mdl.predict_proba(Xte)[:,1]
     np.savez(f'out4/pred_{name}.npz',pv=pv,pt=pt,yv=mv.isFraud.to_numpy(),yt=mt.isFraud.to_numpy(),cv=mv.card1.to_numpy(),ct=mt.card1.to_numpy(),tidv=mv.TransactionID.to_numpy(),tidt=mt.TransactionID.to_numpy())
-    if not rep: C.save_artifact(mdl,f'v4_{base}')
+    if not rep:
+        C.save_artifact(mdl,f'v4_{base}')
+        json.dump(cols,open(f'models/cols_v4_{base}.json','w'))   # ordered feature list used by shap_v4.py
     used=[cols[i] for i,v in enumerate(mdl.booster_.feature_importance('split')) if v>0]
     print(name,mdl.best_iteration_,'val',round(roc_auc_score(mv.isFraud,pv),6),round(average_precision_score(mv.isFraud,pv),4),'test',round(roc_auc_score(mt.isFraud,pt),6),round(average_precision_score(mt.isFraud,pt),4),
           'unused stats',[c for c in ['micro_tx_ratio_3min','device_novelty_flag','escalation_ratio_1h','subthreshold_count_elapsed','structuring_count_day','tx_count_1h','tx_count_6h','tx_count_24h','micro_fail_count_5min'] if c in cols and c not in used],'%.0fs'%(time.time()-t),flush=True)

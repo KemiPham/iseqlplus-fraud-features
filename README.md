@@ -6,8 +6,8 @@ Supplementary material and code for:
 
 - **[supplement.pdf](supplement.pdf)**: parameter and provenance ledger, conformance and prefix-invariance checks, set-level coverage proofs and tests, specification fixtures, replayable traces, configuration, and additional results.
 - **`src/`**: feature pipeline (steps 01–06, `common.py`). It builds `data/train_enriched.parquet` from the IEEE-CIS files.
-- **`analysis/`**: generators for every reported number (revision 4: training-fitted, frozen device preprocessing). See **[RUN.md](RUN.md)** for the command order.
-- **`analysis/results/`**: result tables, logs, the device map, the drop manifest, and ID-aligned model scores (`predictions_C_D_Dbatch.csv.gz`; labels removed, join them by `TransactionID` from the official data).
+- **`analysis/`**: generators for every reported number (training-fitted, frozen device preprocessing), including `diagnostics_v4.py` (Section V diagnostics) and the grouping sensitivity (`stats_by_key.py`, `train_uid.py`, `eval_uid.py`, `grouping_sensitivity.py`; protocol in `analysis/results/PROTOCOL_uid.md`). See **[RUN.md](RUN.md)** for the command order; every check exits non-zero on failure.
+- **`analysis/results/`**: result tables, logs, the device map, the drop manifest, and ID-aligned model scores (`predictions_C_D_Dbatch.csv.gz`) and SHAP summaries (`shap_strat_v4_test.csv`); labels are removed, join them by `TransactionID` from the official data. `clean_run.log` records a clean-directory run of RUN.md steps 2–7; `MANIFEST.sha256` lists file hashes.
 - **`traces/`**: three replayable P1 trace fixtures. They need no data:
   `python3 traces/replay_trace.py traces/*.json`
 - **Synthetic checks** that need no data:

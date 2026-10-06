@@ -41,3 +41,6 @@ for name,f,r,emp,is_float in pairs:
     rows.append(dict(statistic=name,tested=n_s,empty_or_default=int(s[emp].sum()) if emp else '',matches=int((~mm).sum()),mismatches=int(mm.sum()),mismatches_at_tied=int((mm&tie).sum()),excluded=excluded,comparison='abs tol 1e-9' if is_float else 'exact'))
 res=pd.DataFrame(rows); print(res.to_string(index=False)); print('groups',s.card1.nunique(),'rows',n_s,'tied rows',int(tie.sum()))
 res.to_csv('out4/conformance_v4.csv',index=False)
+prim=res[res.statistic!='P4 batch (sensitivity)']
+assert (prim.mismatches==0).all() and (res.excluded==0).all(), 'reference comparison failed'
+print('ENFORCED: 0 mismatches and 0 exclusions for all primary statistics')

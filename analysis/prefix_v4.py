@@ -61,3 +61,7 @@ for mode,label,cut in cuts:
         r[c]=int((~np.isclose(tr[c].astype(float),f[c].astype(float),rtol=0,atol=1e-9)).sum())
     rows.append(r); print(r,flush=True)
 pd.DataFrame(rows).to_csv('out4/prefix_v4.csv',index=False)
+P=pd.DataFrame(rows); prim=['P1','P2','P3','P4','P5_1h','P5_6h','P5_24h','P6']
+assert (P[prim]==0).all().all(), 'prefix invariance failed for a primary statistic'
+assert all(m==0 for _,m in rep), 'raw-input recomputation differs from saved vectors'
+print('ENFORCED: primary statistics unchanged at all cuts; batch P4 differences are expected diagnostics')
