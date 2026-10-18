@@ -1,0 +1,23 @@
+rows 590540 | groups 13553
+partition + sort: 0.05 s
+
+-- sweep timings (590,540 anchors) --
+  P1 w180 ^C RDJ micro       0.30 s
+  P5 Tx DJ w1h               0.28 s
+  P5 Tx DJ w6h               0.28 s
+  P5 Tx DJ w24h              0.28 s
+  P4 sub DJ bucket           0.27 s
+  TOTAL (incl. sort)         1.47 s
+
+-- conformance: interval-join sweep vs manual pandas values --
+  p1_micro_tx_ratio_3min           max|diff| 0   mismatching rows 0
+  p5_tx_count_1h                   mismatching rows 0
+  p5_tx_count_6h                   mismatching rows 0
+  p5_tx_count_24h                  mismatching rows 0
+  p4_subthreshold_count_elapsed    mismatching rows 0
+
+-- literal operator implementation (materialised intervals + eq. (3)) --
+  groups with tied timestamps: 62 | sampled groups: 362 | rows checked: 178237
+  literal evaluation of 178237 anchors: 4.4 s
+  vs manual   P1 mismatches 0 | P4 mismatches 0 | P5(24h) mismatches 0
+  vs sweep    P1 mismatches 0 | P4 mismatches 0

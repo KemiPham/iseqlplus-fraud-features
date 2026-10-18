@@ -22,11 +22,23 @@ Every script exits with a non-zero status if a primary check fails.
 6. Figures and traces:
    `FIGDIR=figures python3 analysis/make_fig_v4.py`
    `python3 analysis/make_traces_v4.py && python3 analysis/replay_trace.py out4/traces/*.json`
-7. Grouping sensitivity (Supplement S8; protocol `analysis/results/PROTOCOL_uid.md`, written before any result):
+7. Grouping sensitivity (Supplement S8; protocol `analysis/results/PROTOCOL_uid.md`, written after the original `card1` diagnostics and before any composite-key result):
    `python3 analysis/stats_by_key.py card1 out5/stats_card1_selfcheck.parquet` (must equal revision 4)
    `python3 analysis/stats_by_key.py uid out5/stats_uid.parquet && python3 analysis/conformance_uid.py`
    `python3 analysis/train_uid.py Duid Duid@drop1 Duid@drop2 Duid@drop3 Duid@drop4 && python3 analysis/eval_uid.py`
    `python3 analysis/grouping_sensitivity.py`
+
+8. Interval-join evaluation (Supplement S9; needs only `numpy`, `pandas`, `pyarrow`;
+   writes `engine/out/`). Steps 8a and 8g need no data; the others need `data/train_enriched.parquet` from step 1:
+   `python3 engine/test_ops.py` (8a: operator properties and the paper's worked cases)
+   `python3 engine/ref_pandas.py` (8b: rebuilds the pandas reference vectors; asserts they match the stored columns)
+   `python3 engine/run_eval.py` (8c: sweep and materializing evaluators vs the manual vectors on all 590,540 rows)
+   `python3 engine/run_alerts.py` (8d: witness alerts and the composed burst constraint)
+   `python3 engine/run_p1_readings.py` (8e: P1 under the rank and wall-clock readings)
+   `python3 engine/run_p3.py` (8f: P3's conceptual escalation-span predicate, both readings)
+   `python3 engine/test_inexpressibility.py` (8g: the pairwise-profile proposition, exact rational arithmetic)
+   Override paths with `ISEQL_DATA` and `ISEQL_OUT` if your layout differs.
+   Recorded outputs are `engine/results_*.txt`; see `engine/RESULTS_engine.md`.
 
 Expected: LightGBM training is deterministic with these versions; best iterations are listed in Supplement S6.
 The clean-directory run log is `analysis/results/clean_run.log`.
