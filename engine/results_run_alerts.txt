@@ -1,0 +1,22 @@
+test month rows 92427 | fraud base rate 3.4763%
+
+-- alerts from the interval-join engine --
+  P1  C>=0.6                         alerts    216  tp    22  prec 10.185%  lift 2.930
+  P4  card>=3                        alerts  41590  tp  1501  prec  3.609%  lift 1.038
+  P5  card>=5 (1h)                   alerts   6275  tp   152  prec  2.422%  lift 0.697
+  P5  card>=5 (6h)                   alerts  26064  tp   907  prec  3.480%  lift 1.001
+  P5  card>=5 (24h)                  alerts  47506  tp  1707  prec  3.593%  lift 1.034
+
+-- composed burst specification (new; needs cardinality AND coverage) --
+  P1b C>=0.6 and micro-card>=2       alerts     64  tp     0  prec  0.000%  lift 0.000
+  P1b C>=0.6 and micro-card>=3       alerts      9  tp     0  prec  0.000%  lift 0.000
+  P1b C>=0.6 and micro-card>=5       alerts      0  tp     0  prec    nan%  lift   nan
+
+-- why P1 measures dominance, not a burst --
+  P1 test-month alerts: 216
+   history size == 1 :   152 alerts ( 70.4%), tp  22
+   history size == 2 :    50 alerts ( 23.1%), tp   0
+   history size == 3 :    14 alerts (  6.5%), tp   0
+  history size >= 2 :    64 alerts, tp   0
+  of the 22 true positives, 22 have exactly one prior event in the window
+  micro-partner count among true positives: {1: np.int64(22)}
