@@ -1,4 +1,4 @@
-"""Unit tests: the paper's own worked examples for eq. (3)."""
+"""Unit tests: the paper's own worked examples for Eq. (2)."""
 from iseql_join import coverage_ratio, coverage_chronons, normalised_pairwise_sum
 ok = True
 def chk(label, got, want, tol=1e-12):
